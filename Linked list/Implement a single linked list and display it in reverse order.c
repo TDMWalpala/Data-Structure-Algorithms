@@ -104,7 +104,7 @@ int main()
          printf("1.Insert data\n");
          printf("2.Display\n");
          printf("3.Reverse list\n");
-         printf("4.Exit"\n);
+         printf("4.Exit\n");
          printf("Enter your choice : \n");
          scanf("%d", &choice);
 
