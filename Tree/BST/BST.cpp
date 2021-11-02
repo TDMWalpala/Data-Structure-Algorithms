@@ -94,6 +94,16 @@ public:
             printInOrder(r->right);
         }
     }
+
+    void printPostOrder(TreeNode *r){
+        if(r==NULL){
+            return;
+        }else{
+            printPostOrder(r->left);
+            printPostOrder(r->right);
+            cout<<r->value<<" ";
+        }
+    }
 };
 
 int main()
@@ -109,7 +119,8 @@ int main()
           cout<<"4. Print BST values "<<endl;
           cout<<"5. Pre-Order Traversal "<<endl;
           cout<<"6. In-Order Traversal "<<endl;
-          cout<<"7. Clear Screen "<<endl;
+          cout<<"7. Post-Order Traversal "<<endl;
+          cout<<"8. Clear Screen "<<endl;
           cout<<"0. Exit Program "<<endl;
           cin>>choice;
           TreeNode *newNode = new TreeNode();
@@ -143,7 +154,11 @@ int main()
                 cout<<"In-Order Traversal "<<endl;
                 tree1.printInOrder(tree1.root);
                 break;
-              case 7:
+               case 7:
+                cout<<"Post-Order Traversal "<<endl;
+                tree1.printPostOrder(tree1.root);
+                break;
+               case 8:
                 system("cls");
                 break;
               default :
