@@ -84,6 +84,16 @@ public:
         printPreOrder(r->left);
         printPreOrder(r->right);
     }
+
+    void printInOrder(TreeNode *r){
+        if(r==NULL){
+            return;
+        }else{
+            printInOrder(r->left);
+            cout<<r->value<<" ";
+            printInOrder(r->right);
+        }
+    }
 };
 
 int main()
@@ -97,8 +107,9 @@ int main()
           cout<<"2. Search Node "<<endl;
           cout<<"3. Delete Node "<<endl;
           cout<<"4. Print BST values "<<endl;
-          cout<<"5. In-Order Traversal "<<endl;
-          cout<<"6. Clear Screen "<<endl;
+          cout<<"5. Pre-Order Traversal "<<endl;
+          cout<<"6. In-Order Traversal "<<endl;
+          cout<<"7. Clear Screen "<<endl;
           cout<<"0. Exit Program "<<endl;
           cin>>choice;
           TreeNode *newNode = new TreeNode();
@@ -119,22 +130,25 @@ int main()
               case 3:
                 cout<<"Delete"<<endl;
                 break;
-             case 4:
+              case 4:
                 cout<<"BST Values"<<endl;
                 tree1.print(tree1.root,5);
                 tree1.printPreOrder(tree1.root);
                 break;
-             case 5:
-                cout<<"In-Order Traversal "<<endl;
+              case 5:
+                cout<<"Per-Order Traversal "<<endl;
                 tree1.printPreOrder(tree1.root);
                 break;
-             case 6:
+               case 6:
+                cout<<"In-Order Traversal "<<endl;
+                tree1.printInOrder(tree1.root);
+                break;
+              case 7:
                 system("cls");
                 break;
-            default :
+              default :
                 cout<<"Please enter valid choice number!"<<endl;
                 break;
-
           }
 
     }while(choice!=0);
