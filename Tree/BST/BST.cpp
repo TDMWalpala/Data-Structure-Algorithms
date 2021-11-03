@@ -104,6 +104,20 @@ public:
             cout<<r->value<<" ";
         }
     }
+    int heightBST(TreeNode *r){
+        if(r==NULL){
+            return -1;
+        }else{
+            int Lheight = heightBST(r->left);
+            int Rheight = heightBST(r->right);
+
+            if(Lheight>Rheight){
+                return(Lheight+1);
+            }else{
+                return(Rheight+1);
+            }
+        }
+    }
 };
 
 int main()
@@ -120,7 +134,8 @@ int main()
           cout<<"5. Pre-Order Traversal "<<endl;
           cout<<"6. In-Order Traversal "<<endl;
           cout<<"7. Post-Order Traversal "<<endl;
-          cout<<"8. Clear Screen "<<endl;
+          cout<<"8. Height of Tree "<<endl;
+          cout<<"9. Clear Screen "<<endl;
           cout<<"0. Exit Program "<<endl;
           cin>>choice;
           TreeNode *newNode = new TreeNode();
@@ -159,6 +174,9 @@ int main()
                 tree1.printPostOrder(tree1.root);
                 break;
                case 8:
+                cout<<"Height is "<<tree1.heightBST(tree1.root)<<endl;
+                break;
+               case 9:
                 system("cls");
                 break;
               default :
