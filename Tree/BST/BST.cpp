@@ -118,6 +118,24 @@ public:
             }
         }
     }
+
+    void PrintBreadthfist(TreeNode *r, int level){
+        if(r==NULL){
+            return;
+        }else if(level==0){
+            cout<<r->value<<" ";
+        }else{
+            PrintBreadthfist(r->left,level-1);
+            PrintBreadthfist(r->right,level-1);
+        }
+    }
+
+    void LevelBFS(TreeNode *r){
+        int h = heightBST(r);
+        for(int i = 0; i<=h; i++){
+            PrintBreadthfist(r,i);
+        }
+    }
 };
 
 int main()
@@ -134,8 +152,9 @@ int main()
           cout<<"5. Pre-Order Traversal "<<endl;
           cout<<"6. In-Order Traversal "<<endl;
           cout<<"7. Post-Order Traversal "<<endl;
-          cout<<"8. Height of Tree "<<endl;
-          cout<<"9. Clear Screen "<<endl;
+          cout<<"8. Level-Order Traversal(BFS) "<<endl;
+          cout<<"9. Height of Tree "<<endl;
+          cout<<"10. Clear Screen "<<endl;
           cout<<"0. Exit Program "<<endl;
           cin>>choice;
           TreeNode *newNode = new TreeNode();
@@ -174,9 +193,13 @@ int main()
                 tree1.printPostOrder(tree1.root);
                 break;
                case 8:
-                cout<<"Height is "<<tree1.heightBST(tree1.root)<<endl;
+                cout<<"Level-Order(Breadth Fist) Traversal "<<endl;
+                tree1.LevelBFS(tree1.root);
                 break;
                case 9:
+                cout<<"Height is "<<tree1.heightBST(tree1.root)<<endl;
+                break;
+               case 10:
                 system("cls");
                 break;
               default :
